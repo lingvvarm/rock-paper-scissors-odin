@@ -22,13 +22,13 @@ function play_round(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection == computerSelection) {
-        return "It's a tie!";
+        return "tie";
     }
     else if (beats[playerSelection] == computerSelection) {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        return "player";
     }
     else {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        return "cpu";
     }
     
 }
@@ -36,20 +36,18 @@ function play_round(playerSelection, computerSelection) {
 
 function game() {
     let player_wins = 0, computer_wins = 0;
-    let result, playerChoice;
+    let winner, playerChoice;
     for (let i = 0; i < 5; i++) {
         playerChoice = prompt("Enter your choice: ");
-        result = play_round(playerChoice, getComputerChoice());
+        winner = play_round(playerChoice, getComputerChoice());
         
-        if (result == "error") {
+        if (winner == "error") {
             return "Wrong input. Try again."
         }
-        console.log(result);
-        let verdict = result.split(" ")[1]
-        if (verdict == "Win!") {
+        if (winner == "player") {
             player_wins += 1;
         }
-        else if (verdict == "Lose!") {
+        else if (winner == "cpu") {
             computer_wins += 1;
         }
         else {
