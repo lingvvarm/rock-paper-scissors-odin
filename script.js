@@ -1,7 +1,7 @@
 "use strict"
 
 function getComputerChoice() {
-    let plays = ["Rock", "Paper", "Scissors"];
+    let plays = ["rock", "paper", "scissors"];
     let chosen = plays[Math.floor(Math.random() * plays.length)];
     return chosen
 }
@@ -12,10 +12,6 @@ function play_round(playerSelection, computerSelection) {
         "scissors": "paper",
         "paper": "rock",
         "rock": "scissors",
-    }
-
-    if (playerSelection == null || playerSelection == "" || (!(playerSelection.toLowerCase() in beats))) {
-        return "error";
     }
 
     playerSelection = playerSelection.toLowerCase();
@@ -33,37 +29,68 @@ function play_round(playerSelection, computerSelection) {
     
 }
 
+let rock = document.getElementById('rock');
+let paper = document.getElementById('paper');
+let scissors = document.getElementById('scissors');
 
-function game() {
-    let player_wins = 0;
-    let computer_wins = 0;
-    let winner, playerChoice;
-    for (let i = 0; i < 5; i++) {
-        playerChoice = prompt("Enter your choice: ");
-        winner = play_round(playerChoice, getComputerChoice());
-        
-        if (winner == "error") {
-            return "Wrong input. Try again."
-        }
-        if (winner == "player") {
-            player_wins += 1;
-        }
-        else if (winner == "cpu") {
-            computer_wins += 1;
-        }
-        else {
-            i--;
-            continue;
-        }
-    }
+rock.addEventListener('click', function() {
+    game('rock');
+});
+paper.addEventListener('click', function() {
+    game('paper')
+});
+scissors.addEventListener('click', function() {
+    game('scissors');
+});
 
-    if (player_wins > computer_wins) {
-        return "You win!";
-    }
-    else if (computer_wins > player_wins) {
-        return "You lose!";
-    }
+
+function capitalize(str) {
+    return str.at(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
-console.log(game());
+
+function game(play) {
+    let computerSelection = getComputerChoice();
+    let winner = play_round(play, computerSelection);
+    let player_score = document.querySelector('.human-score');
+    let cpu_score = document.querySelector('.cpu-score');
+    let msg_text = document.querySelector('.msg-text');
+    let msg_subtext = document.querySelector('.msg-subtext');
+    
+    if (winner == "player") {
+        let new_score = Number(player_score.textContent) + 1;
+        player_score.textContent = String(new_score);
+        msg_text.textContent = `Your ${capitalize(play)} beats Computer's ${capitalize(computerSelection)}`;
+        msg_subtext.textContent = "You win!";
+    }
+    else if (winner == "cpu") {
+        let new_score = Number(cpu_score.textContent) + 1;
+        cpu_score.textContent = String(new_score);
+        msg_text.textContent = `Computer's ${capitalize(computerSelection)} beats Your ${capitalize(play)}`;
+        msg_subtext.textContent = "You lose!";
+    }
+    else {
+        msg_text.textContent = `It's a tie!`;
+        msg_subtext.textContent = "";
+    }
+
+    setTimeout(() => {
+        if (player_score.textContent == 5) {
+            alert("You won. Congtatulations!");
+            player_score.textContent = "0";
+            cpu_score.textContent = "0";
+            msg_subtext.textContent = "";
+            msg_text.textContent = "";
+        }
+        else if (cpu_score.textContent == 5) {
+            alert("You lost. Try again!");
+            player_score.textContent = "0";
+            cpu_score.textContent = "0";
+            msg_subtext.textContent = "";
+            msg_text.textContent = "";
+        }
+        
+    }, 0);
+    
+}
 

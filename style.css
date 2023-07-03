@@ -34,6 +34,7 @@ body {
     cursor: pointer;
 }
 
+.msg-text,
 .player-score,
 .card-text {
     color: white;
@@ -52,7 +53,7 @@ body {
 .score {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 header {
@@ -65,4 +66,24 @@ header {
     margin-top: 20px;
     background-color: #111720;
     padding: 25px;
+}
+
+.score-header,
+.human-score,
+.cpu-score {
+    display: inline-block;
+}
+
+.game-message {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    gap: 5px;
+}
+
+.msg-subtext {
+    color: white;
+    font-size: 18px;
 }
