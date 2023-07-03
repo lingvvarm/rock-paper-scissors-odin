@@ -24,8 +24,8 @@ body {
     background: none;
     border: white solid 3px;
     border-radius: 8px;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     padding: 30px;
 }
 
@@ -34,6 +34,11 @@ body {
     cursor: pointer;
 }
 
+.card:active {
+    background-color: #5D6C83;
+}
+
+.vs,
 .msg-text,
 .player-score,
 .card-text {
@@ -63,9 +68,8 @@ header {
     align-items: center;
     color: white;
     gap: 10px;
-    margin-top: 20px;
     background-color: #111720;
-    padding: 25px;
+    padding: 15px;
 }
 
 .score-header,
@@ -86,4 +90,51 @@ header {
 .msg-subtext {
     color: white;
     font-size: 18px;
+}
+
+.fight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.player-choice,
+.cpu-choice {
+    border: white solid 3px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fight-img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.hidden {
+    display: none;
+}
+
+.github-link {
+    color: white;
+    display: flex;
+    gap: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.github-logo {
+    width: 20px;
+    height: 20px;
+}
+
+.player-choice,
+.cpu-choice {
+    display: flex;
 }
