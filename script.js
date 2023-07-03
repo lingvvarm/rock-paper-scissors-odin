@@ -35,7 +35,8 @@ function play_round(playerSelection, computerSelection) {
 
 
 function game() {
-    let player_wins = 0, computer_wins = 0;
+    let player_wins = 0;
+    let computer_wins = 0;
     let winner, playerChoice;
     for (let i = 0; i < 5; i++) {
         playerChoice = prompt("Enter your choice: ");
@@ -65,3 +66,4 @@ function game() {
 }
 
 console.log(game());
+

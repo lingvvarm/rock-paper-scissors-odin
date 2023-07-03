@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&family=Roboto:wght@100;900&display=swap" rel="stylesheet">
     <title>Rock-paper-scissors</title>
 </head>
 <body>
+
+    <header>
+        <h1 class="text">Rock Paper Scissors</h1>
+        <p class="subtext">Make your turn and outplay the machine!</p>
+    </header>
+
+    <div class="cards">
+        <button class="card">
+            <img class="card-img" src="img/rock.png" alt="rock">
+            <p class="card-text">Rock</p>
+        </button>
+        <button class="card">
+            <img class="card-img" src="img/paper.png" alt="paper">
+            <p class="card-text">Paper</p>
+        </button>
+        <button class="card">
+            <img class="card-img" src="img/scissors.png" alt="scissors">
+            <p class="card-text">Scissors</p>
+        </button>
+        
+    </div>
+
+    <div class="score">
+        <div class="player-score">
+            <p class="score-header">Player score: 0</p>
+        </div>
+        <div class="player-score">
+            <p class="score-header">Computer score: 0</p>
+        </div>
+    </div>
+
+
     <script src="script.js"></script>
 </body>
 </html>
